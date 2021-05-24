@@ -15,5 +15,24 @@ const caesarModule = (function () {
   };
 })();
 
+// function caesar(input, shift, encode = true) {
+//   // input + shift  = input shifted => shift value when encode = true
+//   // when encode = false input is shifted in reverse
+//   // when shift = z wrap to a
+//   // console.log(‘a’.charCodeAt(0)) -> 97
+//   // console.log(‘z’.charCodeAt(0)) -> 122
+//   // using a regular expression to only match alpha characters
+//   if (shift === 0 || shift > 25 || shift < -25) return false;
+//   if (shift < 0 && encode) {
+//     shift = 26 + (shift % 26);
+//   }
+//   return encode
+//   ? input.toLowerCase().replace(/[a-z]/g, letter => String.fromCharCode((letter.charCodeAt(0)-97 + shift) % 26 + 97))
+//   : input.toLowerCase().replace(/[a-z]/g, letter => {
+//     let isItNegative = (letter.charCodeAt(0)-97 - shift) % 26;
+//     const newChar = isItNegative < 0 ? isItNegative += 26 : isItNegative;
+//     return String.fromCharCode(newChar + 97);
+//   });
+// }
 
 module.exports = { caesar: caesarModule.caesar };
