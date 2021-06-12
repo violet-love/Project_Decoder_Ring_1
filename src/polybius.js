@@ -5,9 +5,17 @@
 
 const polybiusModule = (function () {
   // you can add any code you want within this function scope
-
+  let polybiusSquare = 
+  [
+    ['a','b','c','d','e'],
+    ['f','g','h','i','k'],
+    ['l','m','n','o','p'],
+    ['q','r','s','t','u'],
+    ['v','w','x','y','z'],
+  ]
   function polybius(input, encode = true) {
     // your solution code here
+    
   }
 
   return {
