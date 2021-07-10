@@ -6,23 +6,26 @@
 const caesarModule = (function () {
   // you can add any code you want within this function scope
   function caesar(input, shift, encode = true) {
-      if (shift === 0 || shift > 25 || shift < -25) return false;
-      if (shift < 0 && encode) {
-        shift = 26 + (shift % 26);
-      }
-      return encode
-      ? input.toLowerCase().replace(/[a-z]/g, letter => String.fromCharCode((letter.charCodeAt(0)-97 + shift) % 26 + 97))
-      : input.toLowerCase().replace(/[a-z]/g, letter => {
-        let isItNegative = (letter.charCodeAt(0)-97 - shift) % 26;
-        const newChar = isItNegative < 0 ? isItNegative += 26 : isItNegative;
-        return String.fromCharCode(newChar + 97);
-      });
+    if (shift === 0 || shift > 25 || shift < -25) return false;
+    if (shift < 0 && encode) {
+      shift = 26 + (shift % 26);
     }
+    return encode
+      ? input
+          .toLowerCase()
+          .replace(/[a-z]/g, (letter) =>
+            String.fromCharCode(((letter.charCodeAt(0) - 97 + shift) % 26) + 97)
+          )
+      : input.toLowerCase().replace(/[a-z]/g, (letter) => {
+          let isItNegative = (letter.charCodeAt(0) - 97 - shift) % 26;
+          const newChar =
+            isItNegative < 0 ? (isItNegative += 26) : isItNegative;
+          return String.fromCharCode(newChar + 97);
+        });
+  }
   return {
     caesar,
   };
 })();
-
-
 
 module.exports = { caesar: caesarModule.caesar };
